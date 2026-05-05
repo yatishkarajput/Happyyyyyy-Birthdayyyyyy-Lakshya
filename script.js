@@ -40,7 +40,7 @@ const noBtn = document.getElementById('no-btn')
 const music = document.getElementById('bg-music')
 
 // Autoplay: audio starts automatically and continues playing
-music.volume = 0.5
+music.volume = 1
 music.play().catch(() => {
     // Fallback: play on first user interaction if autoplay is blocked
     document.addEventListener('click', () => {
@@ -62,7 +62,7 @@ function toggleMusic() {
 
 function handleYesClick() {
     if (!runawayEnabled) {
-        // Tease her to try No first
+        // Tease him to try No first
         const msg = yesTeasePokes[Math.min(yesTeasedCount, yesTeasePokes.length - 1)]
         yesTeasedCount++
         showTeaseMessage(msg)
