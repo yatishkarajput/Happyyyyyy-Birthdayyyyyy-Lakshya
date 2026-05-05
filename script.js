@@ -39,10 +39,10 @@ const yesBtn = document.getElementById('yes-btn')
 const noBtn = document.getElementById('no-btn')
 const music = document.getElementById('bg-music')
 
-// Autoplay: audio starts automatically and continues playing
+// Autoplay: music plays automatically
 music.volume = 1
 music.play().catch(() => {
-    // Fallback: play on first user interaction if autoplay is blocked
+    // Fallback: play on first interaction if autoplay is blocked
     document.addEventListener('click', () => {
         music.play().catch(() => {})
     }, { once: true })
