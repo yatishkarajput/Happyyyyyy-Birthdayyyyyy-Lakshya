@@ -2,8 +2,6 @@ let musicPlaying = false
 
 window.addEventListener('load', () => {
     launchConfetti()
-
-    // Autoplay music (works since user clicked Yes to get here)
     const music = document.getElementById('bg-music')
     music.volume = 1
     music.play().catch(() => {})
@@ -13,16 +11,12 @@ function launchConfetti() {
     const colors = ['#ff69b4', '#ff1493', '#ff85a2', '#ffb3c1', '#ff0000', '#ff6347', '#fff', '#ffdf00']
     const duration = 6000
     const end = Date.now() + duration
-
-    // Initial big burst
     confetti({
         particleCount: 150,
         spread: 100,
         origin: { x: 0.5, y: 0.3 },
         colors
     })
-
-    // Continuous side cannons
     const interval = setInterval(() => {
         if (Date.now() > end) {
             clearInterval(interval)
