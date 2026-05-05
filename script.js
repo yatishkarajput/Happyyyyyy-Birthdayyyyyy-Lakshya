@@ -39,15 +39,11 @@ const yesBtn = document.getElementById('yes-btn')
 const noBtn = document.getElementById('no-btn')
 const music = document.getElementById('bg-music')
 
-// Autoplay: audio starts muted (bypasses browser policy), unmute immediately
-music.muted = true
-music.volume = 0.3
-music.play().then(() => {
-    music.muted = false
-}).catch(() => {
-    // Fallback: unmute on first interaction
+// Autoplay: audio starts automatically and continues playing
+music.volume = 0.5
+music.play().catch(() => {
+    // Fallback: play on first user interaction if autoplay is blocked
     document.addEventListener('click', () => {
-        music.muted = false
         music.play().catch(() => {})
     }, { once: true })
 })
@@ -58,7 +54,6 @@ function toggleMusic() {
         musicPlaying = false
         document.getElementById('music-toggle').textContent = '🔇'
     } else {
-        music.muted = false
         music.play()
         musicPlaying = true
         document.getElementById('music-toggle').textContent = '🔊'
