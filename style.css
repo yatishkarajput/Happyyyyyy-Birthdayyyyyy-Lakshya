@@ -204,3 +204,9 @@ h1 {
     width: 260px;
     height: 260px;
 }
+/* Mobile Responsive Updates */
+
+/* For tablets and smaller screens */
+@media (max-width: 768px) {
+    ...
+}
